@@ -1,0 +1,42 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:LectureCtrl:index{% endblock %}
+
+{% block body %}
+
+    {{ form_start(leFormulaire) }}
+    <p>{{ form_row(leFormulaire.num, {'label' : 'Numéro : '}) }}</p>
+
+    <p><h2>
+
+        {{ form_row (leFormulaire.nom, {'label' : 'Nom de l\'employe'}) }}
+        {{ form_row (leFormulaire.prenom, {'label' : 'Prénom de l\'employe'}) }}
+
+    </h2></p>
+
+    <p>{{ form_row(leFormulaire.dateNaissance) }}</p>
+    {{ form_end(leFormulaire) }}
+
+        <p><h3>Son sport préféré :
+
+            {% if(sport == 'RALLYE') %}
+                {{ sport | upper }}
+            {% else %}
+                {{ 'Aucun intérêt' }}
+            {% endif %}
+        </h3></p>
+
+<p><h3>Ses voitures préférées : </h3><ul>
+    {% for uneAuto in autos %}
+<li><h4>{{ uneAuto }}</h4></li>
+    {% endfor %}</ul>
+    </p>
+
+        </h3>
+
+
+    </p>
+
+
+
+{% endblock %}
